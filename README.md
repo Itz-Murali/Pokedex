@@ -14,7 +14,7 @@ Fetch detailed information about every Pokémon, including their stats, abilitie
 
 - HTML
 - CSS
-- JavaScript
+- JAVASCRIPT 
 - POKE API
  
 ---
