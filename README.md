@@ -6,7 +6,7 @@ Fetch detailed information about every Pokémon, including their stats, abilitie
 🎮 Powered by the **PokeAPI** to bring you all the Pokémon goodness.
 
 🌟 **Ready to explore?**  
-🔗 [**See Pokedex**](https://MuraliBotz.github.io/Pokedex)
+🔗 [**See Pokedex**](https://MysticalDevs.github.io/Pokedex)
 
 ---
 
@@ -19,4 +19,4 @@ Fetch detailed information about every Pokémon, including their stats, abilitie
  
 ---
 
-👾 _Created with care by @MuraliBotz_
+👾 _Created with care by @MysticalDevs_
