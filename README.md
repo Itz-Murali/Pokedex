@@ -6,9 +6,13 @@ Fetch detailed information about every Pokémon, including their stats, abilitie
 🎮 Powered by the **PokeAPI** to bring you all the Pokémon goodness.
 
 🌟 **Ready to explore?**  
-🔗 [**See Pokedex**](https://MysticalDevs.github.io/Pokedex)
 
----
+<div align="center">
+    <a href="https://MysticalDevs.github.io/Pokedex" style="text-decoration: none;">
+        <img src="https://img.shields.io/badge/See%20Pokedex-%23008080?style=for-the-badge&logoColor=white" alt="See Pokedex"/>
+    </a>
+</div>
+
 
 ## Technologies Used
 
