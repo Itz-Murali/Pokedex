@@ -21,12 +21,12 @@ const progressText = document.getElementById('progress-text');
 const loadingTextElement = document.querySelector('.loading-text');
 
 const loadingMessages = [
-  "🔍 Fetching Pokémon Server...",
-  "📦 Fetching Details...",
-  "🧿 Initializing Pokédex...",
-  "✨ Almost There, Trainer..."
+  "🌌 Establishing Link to Pokéverse...",
+  "🧬 Scanning DNA of Wild Pokémons...",
+  "⚙️ Calibrating PokéDex Engine...",
+  "🔮 Syncing with Legendary Archives...",
+  "✨ Finalizing Trainer Interface..."
 ];
-
 const pokemon_count = 1010;
 const colors = {
   fire: '#FDDFDF',
@@ -248,7 +248,7 @@ const interval = setInterval(() => {
   if (index === loadingMessages.length) {
     clearInterval(interval);
   }
-}, 1200); 
+}, 2700); 
 
 
 fetchPokemons();
