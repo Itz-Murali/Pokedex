@@ -234,10 +234,10 @@ searchInput.addEventListener('input', () => {
 
 const loadingMessages = [
   "🌌 Establishing Link to Pokéverse...",
-  "🧬 Scanning DNA of Wild Pokémons...",
+  "🧬 Scanning DNA of All Pokémons...",
   "⚙️ Calibrating PokéDex Engine...",
-  "🔮 Syncing with Legendary Archives...",
-  "✨ Finalizing Trainer Interface..."
+  "🔮 Syncing with Legendary & Mythical Archives...",
+  "✨ Finalizing Pokedex Interface..."
 ];
 
 let index = 0;
@@ -249,7 +249,7 @@ const interval = setInterval(() => {
   if (index === loadingMessages.length) {
     clearInterval(interval);
   }
-}, 1200); 
+}, 2400); 
 
 
 fetchPokemons();
