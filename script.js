@@ -18,6 +18,14 @@ const modalDesc = document.getElementById('modal-pokemon-desc'); // description 
 const loadingScreen = document.getElementById('loading-screen');
 const progressBar = document.getElementById('progress');
 const progressText = document.getElementById('progress-text');
+const loadingTextElement = document.querySelector('.loading-text');
+
+const loadingMessages = [
+  "🔍 Fetching Pokémon Server...",
+  "📦 Fetching Details...",
+  "🧿 Initializing Pokédex...",
+  "✨ Almost There, Trainer..."
+];
 
 const pokemon_count = 1010;
 const colors = {
@@ -228,5 +236,19 @@ searchInput.addEventListener('input', () => {
     filteredPokemon.forEach(pokemon => createPokemonCard(pokemon));
   }
 });
+
+
+
+let index = 0;
+
+const interval = setInterval(() => {
+  loadingTextElement.textContent = loadingMessages[index];
+  index++;
+
+  if (index === loadingMessages.length) {
+    clearInterval(interval);
+  }
+}, 1200); 
+
 
 fetchPokemons();
