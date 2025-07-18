@@ -230,41 +230,26 @@ searchInput.addEventListener('input', () => {
   }
 });
 
+const loadingTextElement = document.querySelector('.loading-text');
+
+
 const loadingMessages = [
-  "🌌 Establishing Link to Pokéverse...",
-  "🧬 Scanning DNA of All Pokémons...",
-  "⚙️ Calibrating PokéDex Engine...",
-  "🔮 Syncing with Legendary Archives...",
-  "✨ Finalizing Pokedex Interface..."
+  "🔍 Fetching Pokémon Server...",
+  "📦 Fetching Details...",
+  "🧿 Initializing Pokédex...",
+  "✨ Almost There, Trainer..."
 ];
 
-const el = document.querySelector('.loading-text');
-const fadeDuration = 600;
-const typingDuration = 2000;
-let i = 0;
+l
+let index = 0;
 
-function nextMessage() {
-  el.classList.remove('fade-in');
-  el.classList.add('fade-out');
-  setTimeout(() => {
-    el.textContent = loadingMessages[i];
-    el.style.width = '0';
-    el.classList.remove('fade-out');
-    el.classList.add('typing', 'fade-in');
-    setTimeout(() => {
-      el.classList.remove('typing');
-      i = (i + 1) % loadingMessages.length;
-      setTimeout(nextMessage, 1000);
-    }, typingDuration);
-  }, fadeDuration);
-}
+const interval = setInterval(() => {
+  loadingTextElement.textContent = loadingMessages[index];
+  index++;
 
-el.textContent = loadingMessages[0];
-el.classList.add('typing', 'fade-in');
-setTimeout(() => {
-  el.classList.remove('typing');
-  setTimeout(nextMessage, 1000);
-}, typingDuration);
-
+  if (index === loadingMessages.length) {
+    clearInterval(interval);
+  }
+}, 1200); 
 
 fetchPokemons();
