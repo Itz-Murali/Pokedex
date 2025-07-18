@@ -236,20 +236,32 @@ const loadingMessages = [
   "🌌 Establishing Link to Pokéverse...",
   "🧬 Scanning DNA of All Pokémons...",
   "⚙️ Calibrating PokéDex Engine...",
-  "🔮 Syncing with Legendary & Mythical Archives...",
-  "✨ Finalizing Pokedex Interface..."
+  "🔮 Syncing with Legendary Archives...",
+  "✨ Finalizing Trainer Interface..."
 ];
+
 
 let index = 0;
 
-const interval = setInterval(() => {
-  loadingTextElement.textContent = loadingMessages[index];
-  index++;
+function showNextMessage() {
+  
+  loadingTextElement.style.animation = 'fadeOut 0.5s ease forwards';
+  
+  setTimeout(() => {
 
-  if (index === loadingMessages.length) {
-    clearInterval(interval);
-  }
-}, 1200); 
+    loadingTextElement.textContent = loadingMessages[index];
+    loadingTextElement.style.width = '0';
+    loadingTextElement.style.animation = 'typing 2.2s steps(40, end) forwards';
+
+    index++;
+    if (index < loadingMessages.length) {
+      setTimeout(showNextMessage, 2700); 
+    }
+  }, 500); 
+}
+
+
+showNextMessage();
 
 
 fetchPokemons();
