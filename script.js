@@ -229,4 +229,33 @@ searchInput.addEventListener('input', () => {
   }
 });
 
+
+const loadingText = document.getElementById('loading-text');
+
+const messages = [
+ "🔍 Fetching Pokémon Server...",
+  "📦 Fetching Details...",
+  "🧿 Initializing Pokédex..."
+];
+
+let index = 0;
+
+function updateLoadingText() {
+  loadingText.style.opacity = 0; 
+
+  setTimeout(() => {
+    loadingText.textContent = messages[index];
+    loadingText.style.opacity = 1; 
+
+    index++;
+    if (index < messages.length) {
+      setTimeout(updateLoadingText, 1100); 
+    }
+  }, 350); 
+}
+
+setTimeout(updateLoadingText, 350);
+
+
 fetchPokemons();
+
