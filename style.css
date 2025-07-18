@@ -17,6 +17,7 @@ body {
 
 h1 {
   letter-spacing: 3px;
+  font-family: 'Lugrasimo', serif;
 }
 
 .poke-container {
@@ -36,6 +37,14 @@ h1 {
   padding: 20px;
   text-align: center;
   cursor: pointer;
+opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.pokemon.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .pokemon .img-container {
@@ -67,41 +76,273 @@ h1 {
   letter-spacing: 1px;
 }
 
+/* =============================
+   MODAL LAYOUT & FADE-IN + FADE-OUT ANIMATION
+   ============================= */
 
+/* by default hidden */
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.6);
+  align-items: center;
   
+  justify-content: center;
+  z-index: 1000;
 }
 
+/* जब JS से .show लगेगा तभी दिखेगा flex में */
+.modal.show {
+  display: flex;
+}
+
+/* शुरू में छोटे और invisible */
 .modal-content {
-  background-color: transparent;
-  margin: 15% auto;
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 20px;
-  
-  width: 300px;
+  width: 320px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
   backdrop-filter: blur(65px);
-  animation: neon-glow 10s infinite;
+
+  opacity: 0;
+  transform: scale(0.8);
 }
 
-.modal-img-container img {
-  width: 200px;
-  height: 200px;
+/* FADE-IN */
+.modal.show .modal-content {
+  animation: fadeInScale 0.3s ease-out forwards;
 }
 
-.modal .info {
-  margin-top: 20px;
+/* FADE-OUT */
+.modal.hide .modal-content {
+  animation: fadeOutScale 0.3s ease-out forwards;
 }
 
+
+@keyframes colorChange {
+  0% {
+    color: aqua;
+    text-decoration-color: aqua;
+  }
+  20% {
+    color: magenta;
+    text-decoration-color: magenta;
+  }
+  40% {
+    color: gold;
+    text-decoration-color: gold;
+  }
+  60% {
+    color: lime;
+    text-decoration-color: lime;
+  }
+  80% {
+    color: deeppink;
+    text-decoration-color: deeppink;
+  }
+  100% {
+    color: aqua;
+    text-decoration-color: aqua;
+  }
+}
+
+
+.stats {
+  background: transparent;
+  padding: 5px;
+  
+  margin: 20px auto;
+   color: #0ff3;
+  font-family: 'Segoe UI', sans-serif;
+  
+}
+
+.stats h4 {
+  color: #00ffae;
+  font-size: 1.1rem;
+  text-decoration: underline;
+  text-decoration-color: aqua;
+font-family: 'Lugrasimo', serif;
+  
+  animation: colorChangeV2 5s linear infinite;
+}
+
+@keyframes colorChangeV2 {
+  0% {
+    color: aqua;
+    text-decoration-color: aqua;
+  }
+  20% {
+    color: orange;
+    text-decoration-color: orange;
+  }
+  40% {
+    color: violet;
+    text-decoration-color: violet;
+  }
+  60% {
+    color: crimson;
+    text-decoration-color: crimson;
+  }
+  80% {
+    color: springgreen;
+    text-decoration-color: springgreen;
+  }
+  100% {
+    color: aqua;
+    text-decoration-color: aqua;
+  }
+}
+
+.stats ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+.stats li {
+  margin: 8px 0;
+  font-weight: bold;
+}
+
+.stats .liA {
+  color: lightcoral;
+}
+
+.stats .liA span {
+  color: white;
+}
+
+.stats .liD {
+  color: greenyellow;
+}
+
+.stats .liD span {
+  color: white;
+}
+
+.stats .liS {
+  color: darkturquoise;
+}
+
+.stats .liS span {
+  color: white;
+}
+.name {
+  /* Start values (optional) */
+  color: aqua;
+  text-decoration: underline;
+  text-decoration-color: aqua;
+font-family: 'Lugrasimo', serif;
+  /* Animation */
+  animation: colorChange 5s linear infinite;
+}
+
+/* Keyframes to animate color + underline color */
+
+
+.type {
+  color: lightgreen;
+  font-size: 1rem;
+}
+
+.type span {
+  color: white;
+  font-size: 1rem;
+}
+
+
+
+.Poke-Id {
+  color: peru;
+  font-size: 1rem;
+}
+
+.Poke-Id span {
+  color: white;
+  font-size: 1rem;
+}
+
+
+.Poke-Hp {
+  color: pink;
+  font-size: 1rem;
+}
+
+.Poke-Hp span {
+  color: white;
+  font-size: 1rem;
+}
+/* Keyframes for fade-in */
+
+.abilities {
+
+  background-color: rgba(255, 255, 255, 0); /* transparent */
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.abilities h4 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: #00c8ff;
+  font-family: 'Lugrasimo', serif;
+  border-bottom: 2px solid #00c8ff;
+  display: inline-block;
+}
+
+.abilities ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.abilities ul li {
+  margin: 3px 0;
+  padding: 3px;
+  color: whitesmoke;
+  
+}
+
+/* hover effect */
+.abilities ul li:hover {
+  
+  cursor: pointer;
+}
+
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Keyframes for fade-out */
+@keyframes fadeOutScale {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+/* Close button style (वैसा ही जैसा पहले था) */
 .close {
   color: #aaa;
   float: right;
@@ -115,62 +356,76 @@ h1 {
   color: black;
 }
 
-
-
-.modal-content .stats,
-.modal-content .abilities {
+/* Description container spacing */
+.description-container {
   margin-top: 15px;
   text-align: left;
 }
 
-.modal-content h4 {
-  margin-bottom: 10px;
+.description-container h4 {
+  margin-bottom: 8px;
+  color: #ffd700;
+  font-family: 'Lugrasimo', serif;
 }
 
-.modal-content ul {
-  list-style-type: none;
-  padding: 0;
+.description-container p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #efefef;
 }
 
-.modal-content ul li {
-  margin-bottom: 5px;
-}
 
+/* (अगर अभी भी neon glow animation रखना है) */
 @keyframes neon-glow {
-    0% {
-        box-shadow: 
-                    0 0 10px 5px rgba(255, 204, 0, 0.6), 
-                    0 0 10px 5px rgba(51, 255, 255, 0.7); 
-    }
-    20% {
-        box-shadow: 0 0 7px 3px rgba(255, 51, 255, 0.8),  
-                    0 0 10px 5px rgba(255, 102, 0, 0.6), 
-                    0 0 10px 5px rgba(51, 255, 102, 0.7); 
-    }
-    40% {
-        box-shadow: 0 0 7px 3px rgba(0, 255, 255, 0.8),   
-                    0 0 10px 5px rgba(0, 128, 255, 0.6),  
-                    0 0 10px 5px rgba(255, 255, 102, 0.7); 
-    }
-    60% {
-        box-shadow: 0 0 7px 3px rgba(204, 0, 255, 0.8),   
-                    0 0 10px 5px rgba(255, 153, 51, 0.6), 
-                    0 0 10px 5px rgba(0, 204, 255, 0.7);  
-    }
-    80% {
-        box-shadow: 0 0 7px 3px rgba(255, 102, 255, 0.8), 
-                    0 0 10px 5px rgba(255, 255, 0, 0.6),  
-                    0 0 10px 5px rgba(102, 255, 255, 0.7); 
-    }
-    100% {
-        box-shadow: 0 0 7px 3px rgba(0, 255, 128, 0.8),   
-                    0 0 10px 5px rgba(153, 0, 255, 0.6),  
-                    0 0 10px 5px rgba(255, 51, 102, 0.7); 
-    }
+  0% {
+    box-shadow:
+      0 0 10px 5px rgba(255, 204, 0, 0.6),
+      0 0 10px 5px rgba(51, 255, 255, 0.7);
+  }
+  20% {
+    box-shadow:
+      0 0 7px 3px rgba(255, 51, 255, 0.8),
+      0 0 10px 5px rgba(255, 102, 0, 0.6),
+      0 0 10px 5px rgba(51, 255, 102, 0.7);
+  }
+  40% {
+    box-shadow:
+      0 0 7px 3px rgba(0, 255, 255, 0.8),
+      0 0 10px 5px rgba(0, 128, 255, 0.6),
+      0 0 10px 5px rgba(255, 255, 102, 0.7);
+  }
+  60% {
+    box-shadow:
+      0 0 7px 3px rgba(204, 0, 255, 0.8),
+      0 0 10px 5px rgba(255, 153, 51, 0.6),
+      0 0 10px 5px rgba(0, 204, 255, 0.7);
+  }
+  80% {
+    box-shadow:
+      0 0 7px 3px rgba(255, 102, 255, 0.8),
+      0 0 10px 5px rgba(255, 255, 0, 0.6),
+      0 0 10px 5px rgba(102, 255, 255, 0.7);
+  }
+  100% {
+    box-shadow:
+      0 0 7px 3px rgba(0, 255, 128, 0.8),
+      0 0 10px 5px rgba(153, 0, 255, 0.6),
+      0 0 10px 5px rgba(255, 51, 102, 0.7);
+  }
 }
 
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+    padding: 15px;
+  }
 
-
+  .modal-img-container img {
+    width: 250px;
+    height: 250px;
+  }
+}
 .search-container {
   position: absolute;
   top: 10px;
@@ -205,4 +460,12 @@ h1 {
   opacity: 1;
   visibility: visible;
 }
+
+
+.Pokemonname {
+  font-family: serif;
+}
+
+
+
 
