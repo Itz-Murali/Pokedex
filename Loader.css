@@ -40,10 +40,13 @@
 
 
 .p-image {
-    width: 20%;
-    height: 10%;
+  width: 20%;
+  height: auto;
+  display: block;
+  margin: 0 auto;       /* center horizontally */
+  margin-top: 0;        /* bring to top */
+  padding-top: 0;
 }
-
 /* ===========================
    POKÉBALL IMAGE REPLACEMENT
    =========================== */
