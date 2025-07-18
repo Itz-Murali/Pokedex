@@ -96,7 +96,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-  animation: fade 0.5s ease-in-out;
+  animation: fade 2s ease-in-out;
 }
 
 @keyframes fade {
