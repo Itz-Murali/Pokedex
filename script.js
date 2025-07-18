@@ -18,7 +18,6 @@ const modalDesc = document.getElementById('modal-pokemon-desc'); // description 
 const loadingScreen = document.getElementById('loading-screen');
 const progressBar = document.getElementById('progress');
 const progressText = document.getElementById('progress-text');
-const loadingTextElement = document.querySelector('.loading-text');
 
 
 const pokemon_count = 1010;
@@ -231,43 +230,41 @@ searchInput.addEventListener('input', () => {
   }
 });
 
-
 const loadingMessages = [
   "🌌 Establishing Link to Pokéverse...",
   "🧬 Scanning DNA of All Pokémons...",
+  "⚙️ Calibrating PokéDex Engine...",
   "🔮 Syncing with Legendary Archives...",
-  "✨ Finalizing Trainer Interface..."
+  "✨ Finalizing Pokedex Interface..."
 ];
 
-let index = 0;
+const el = document.querySelector('.loading-text');
+const fadeDuration = 600;
+const typingDuration = 2000;
+let i = 0;
 
-function showNextMessage() {
-  
-  loadingTextElement.style.opacity = '1';
-  loadingTextElement.style.animation = 'typing 1.4s steps(40, end), blink 0.8s step-end infinite';
-
-  loadingTextElement.textContent = loadingMessages[index];
-  loadingTextElement.style.width = '0';
-
-  void loadingTextElement.offsetWidth;
-
-  loadingTextElement.style.animation = 'typing 1.4s steps(40, end), blink 0.8s step-end infinite';
-
-
+function nextMessage() {
+  el.classList.remove('fade-in');
+  el.classList.add('fade-out');
   setTimeout(() => {
-    loadingTextElement.style.animation = 'fadeOut 0.6s ease forwards';
-  }, 2000); 
-
-  
-  setTimeout(() => {
-    index++;
-    if (index < loadingMessages.length) {
-      showNextMessage();
-    }
-  }, 2600); 
+    el.textContent = loadingMessages[i];
+    el.style.width = '0';
+    el.classList.remove('fade-out');
+    el.classList.add('typing', 'fade-in');
+    setTimeout(() => {
+      el.classList.remove('typing');
+      i = (i + 1) % loadingMessages.length;
+      setTimeout(nextMessage, 1000);
+    }, typingDuration);
+  }, fadeDuration);
 }
 
-showNextMessage();
+el.textContent = loadingMessages[0];
+el.classList.add('typing', 'fade-in');
+setTimeout(() => {
+  el.classList.remove('typing');
+  setTimeout(nextMessage, 1000);
+}, typingDuration);
 
 
 fetchPokemons();
