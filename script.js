@@ -249,7 +249,7 @@ const interval = setInterval(() => {
   if (index === loadingMessages.length) {
     clearInterval(interval);
   }
-}, 2400); 
+}, 1200); 
 
 
 fetchPokemons();
