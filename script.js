@@ -233,9 +233,10 @@ searchInput.addEventListener('input', () => {
 const loadingText = document.getElementById('loading-text');
 
 const messages = [
- "🔍 Fetching Pokémon Server...",
-  "📦 Fetching Details...",
-  "🧿 Initializing Pokédex..."
+  "🔍 Connecting to PokéServer...",
+  "📦 Fetching Pokémon Data...",
+  "🧬 Analyzing Stats & Abilities...",
+  "🧿 Initializing Pokédex Interface..."
 ];
 
 let index = 0;
