@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Loader.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lugrasimo">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <title>Pokedex</title>
   </head>
   <body>
@@ -12,39 +16,72 @@
       <div class="search-icon" id="search-icon">🔍</div>
       <input type="text" id="search-input" placeholder="Search Pokémon..." />
     </div>
+      
+
+  <div class="loading-screen" id="loading-screen">
+  <div class="loading-container">
+    <!-- Rotating Pokéball PNG: -->
+    <img
+      src="https://img.icons8.com/color/48/pokeball--v1.png"
+      alt="Rotating Pokéball"
+      class="loader-image"/>
+
+    <!-- Shimmering loading text (unchanged) -->
+    <p class="loading-text">Loading Pokémons...</p>
+
+    <!-- Progress bar + percentage (unchanged) -->
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+      <div class="progress-text" id="progress-text">0%</div>
+    </div>
+  </div>
+</div>
+    
     <div class="poke-container" id="poke-container"></div>
 
     
-    <div class="modal" id="pokemon-modal">
-      <div class="modal-content">
-        <span class="close" id="close-modal">&times;</span>
-        <div class="img-container modal-img-container">
-          <img id="modal-pokemon-img" alt="Pokemon">
-        </div>
-        <div class="info modal-info">
-          <h3 class="name" id="modal-pokemon-name"></h3>
-          <small class="type">Type: <span id="modal-pokemon-type"></span></small>
-          <p>ID: <span id="modal-pokemon-id"></span></p>
-          <p>Base HP: <span id="modal-pokemon-hp"></span></p>
+    <!-- ===== Modal (index.html) ===== -->
+<div class="modal" id="pokemon-modal">
+  <div class="modal-content" id="modal-content">
+    <span class="close" id="close-modal">&times;</span>
 
-          <div class="stats">
-            <h4>Stats:</h4>
-            <ul>
-              <li>Attack: <span id="modal-pokemon-attack"></span></li>
-              <li>Defense: <span id="modal-pokemon-defense"></span></li>
-              <li>Speed: <span id="modal-pokemon-speed"></span></li>
-            </ul>
-          </div>
+    <div class="img-container modal-img-container">
+      <img id="modal-pokemon-img" alt="Pokemon" />
+    </div>
 
-          <div class="abilities">
-            <h4>Abilities:</h4>
-            <ul id="modal-pokemon-abilities"></ul>
-          </div>
-        </div>
+    <div class="info modal-info">
+      <h3 class="name" id="modal-pokemon-name"></h3>
+      <small class="type">Type: <span id="modal-pokemon-type"></span></small>
+      <div class="Poke-Id">ID: <span id="modal-pokemon-id"></span></div>
+      <div class="Poke-Hp">Base HP: <span id="modal-pokemon-hp"></span></div>
+
+ <div class="stats">
+  <h4>Stats</h4>
+  <ul>
+    <li class="liA">Attack: <span id="modal-pokemon-attack"></span></li>
+    <li class="liD">Defense: <span id="modal-pokemon-defense"></span></li>
+    <li class="liS">Speed: <span id="modal-pokemon-speed"></span></li>
+  </ul>
+</div>
+
+      <div class="abilities">
+        <h4>Abilities:</h4>
+        <ul id="modal-pokemon-abilities"></ul>
+      </div>
+
+   
+      <div class="description-container">
+        <h4>About:</h4>
+        <p id="modal-pokemon-desc">Loading description...</p>
       </div>
     </div>
+  </div>
+</div>
 
     <script src="script.js"></script>
   </body>
 </html>
+
 
