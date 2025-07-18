@@ -85,25 +85,28 @@
     opacity: 0.8;
 }
 
-/* ===========================
-   LOADING TEXT
-   =========================== */
+
+
 .loading-text {
-    font-size: 1.2rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
     text-transform: uppercase;
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: shimmer 2s linear infinite;
+  animation: fade 0.5s ease-in-out;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 
-/* ===========================
-   KEYFRAMES & UTILITIES
-   =========================== */
+  
+
 @keyframes pokeball-spin {
     to {
         transform: rotate(360deg);
