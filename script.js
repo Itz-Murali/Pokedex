@@ -240,26 +240,33 @@ const loadingMessages = [
   "✨ Finalizing Trainer Interface..."
 ];
 
-
 let index = 0;
 
 function showNextMessage() {
   
-  loadingTextElement.style.animation = 'fadeOut 0.5s ease forwards';
+  loadingTextElement.style.opacity = '1';
+  loadingTextElement.style.animation = 'typing 1.4s steps(40, end), blink 0.8s step-end infinite';
+
+  loadingTextElement.textContent = loadingMessages[index];
+  loadingTextElement.style.width = '0';
+
+  void loadingTextElement.offsetWidth;
+
+  loadingTextElement.style.animation = 'typing 1.4s steps(40, end), blink 0.8s step-end infinite';
+
+
+  setTimeout(() => {
+    loadingTextElement.style.animation = 'fadeOut 0.6s ease forwards';
+  }, 1800); 
+
   
   setTimeout(() => {
-
-    loadingTextElement.textContent = loadingMessages[index];
-    loadingTextElement.style.width = '0';
-    loadingTextElement.style.animation = 'typing 2.2s steps(40, end) forwards';
-
     index++;
     if (index < loadingMessages.length) {
-      setTimeout(showNextMessage, 2700); 
+      showNextMessage();
     }
-  }, 500); 
+  }, 2600); 
 }
-
 
 showNextMessage();
 
