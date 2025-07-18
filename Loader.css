@@ -38,6 +38,12 @@
     position: relative;
 }
 
+
+.p-image {
+    width: 50%;
+    height: 50%;
+}
+
 /* ===========================
    POKÉBALL IMAGE REPLACEMENT
    =========================== */
