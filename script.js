@@ -20,13 +20,7 @@ const progressBar = document.getElementById('progress');
 const progressText = document.getElementById('progress-text');
 const loadingTextElement = document.querySelector('.loading-text');
 
-const loadingMessages = [
-  "🌌 Establishing Link to Pokéverse...",
-  "🧬 Scanning DNA of Wild Pokémons...",
-  "⚙️ Calibrating PokéDex Engine...",
-  "🔮 Syncing with Legendary Archives...",
-  "✨ Finalizing Trainer Interface..."
-];
+
 const pokemon_count = 1010;
 const colors = {
   fire: '#FDDFDF',
@@ -238,6 +232,13 @@ searchInput.addEventListener('input', () => {
 });
 
 
+const loadingMessages = [
+  "🌌 Establishing Link to Pokéverse...",
+  "🧬 Scanning DNA of Wild Pokémons...",
+  "⚙️ Calibrating PokéDex Engine...",
+  "🔮 Syncing with Legendary Archives...",
+  "✨ Finalizing Trainer Interface..."
+];
 
 let index = 0;
 
