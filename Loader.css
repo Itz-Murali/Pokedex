@@ -42,15 +42,13 @@
 .p-image {
   width: 20%;
   height: auto;
-  display: block;
-  margin: 0 auto;       /* center horizontally */
-  margin-top: 0;        /* bring to top */
-  padding-top: 0;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
-/* ===========================
-   POKÉBALL IMAGE REPLACEMENT
-   =========================== */
-/* Drop any reference to .loader-ring / .loader-core. */
+
+
 .loader-image {
     width: 50%;
     height: 50%;
