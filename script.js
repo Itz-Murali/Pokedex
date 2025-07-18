@@ -235,7 +235,6 @@ searchInput.addEventListener('input', () => {
 const loadingMessages = [
   "🌌 Establishing Link to Pokéverse...",
   "🧬 Scanning DNA of All Pokémons...",
-  "⚙️ Calibrating PokéDex Engine...",
   "🔮 Syncing with Legendary Archives...",
   "✨ Finalizing Trainer Interface..."
 ];
@@ -257,7 +256,7 @@ function showNextMessage() {
 
   setTimeout(() => {
     loadingTextElement.style.animation = 'fadeOut 0.6s ease forwards';
-  }, 1800); 
+  }, 2000); 
 
   
   setTimeout(() => {
