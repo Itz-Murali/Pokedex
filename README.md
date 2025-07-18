@@ -1,12 +1,13 @@
-<h1 align="center">🧿✨ Pokedex Explorer ✨🧿</h1>
+<h1 align="center">🧿✨ Pokedex ✨🧿</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Powered%20by-PokeAPI-FFCB05?style=for-the-badge&logo=pokemon&logoColor=white" />
   <img src="https://img.shields.io/badge/Built%20With-HTML%20%7C%20CSS%20%7C%20JS-3B4CCA?style=for-the-badge" />
 </p>
 
+
 <p align="center">
-  <img src="https://i.gifer.com/origin/fd/fda185b5f3be58b05d63dbb0ce2cbbbe_w200.gif" alt="Pokemon" width="180" />
+  <img src="p.png" alt="Pokeball" width="180" />
 </p>
 
 <p align="center">
