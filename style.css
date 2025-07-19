@@ -231,16 +231,15 @@ font-family: 'Lugrasimo', serif;
   color: white;
 }
 .name {
-  /* Start values (optional) */
+  
   color: aqua;
   text-decoration: underline;
   text-decoration-color: aqua;
 font-family: 'Lugrasimo', serif;
-  /* Animation */
+  font-size: 1.2rem;
   animation: colorChange 5s linear infinite;
 }
 
-/* Keyframes to animate color + underline color */
 
 
 .type {
