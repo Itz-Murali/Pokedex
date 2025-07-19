@@ -39,13 +39,23 @@
 }
 
 
+@keyframes shrinkImage {
+  0% {
+    transform: translateX(-50%) scale(1.5);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
 .p-image {
   width: 50%;
   height: auto;
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) scale(1); 
+  animation: shrinkImage 0.6s ease-out;
 }
 
 
