@@ -76,11 +76,7 @@ opacity: 0;
   letter-spacing: 1px;
 }
 
-/* =============================
-   MODAL LAYOUT & FADE-IN + FADE-OUT ANIMATION
-   ============================= */
 
-/* by default hidden */
 .modal {
   display: none;
   position: fixed;
@@ -95,12 +91,11 @@ opacity: 0;
   z-index: 1000;
 }
 
-/* जब JS से .show लगेगा तभी दिखेगा flex में */
+
 .modal.show {
   display: flex;
 }
 
-/* शुरू में छोटे और invisible */
 .modal-content {
   background-color: rgba(255, 255, 255, 0.1);
   padding: 20px;
