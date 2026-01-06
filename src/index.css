@@ -1,0 +1,347 @@
+@import '@fontsource/vt323';
+@import '@fontsource/orbitron';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Clean Modern Color System */
+    --background: 220 20% 97%;
+    --foreground: 220 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    /* Pokémon Red */
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Soft Gray */
+    --secondary: 220 15% 94%;
+    --secondary-foreground: 220 20% 20%;
+
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    /* Warm Accent */
+    --accent: 35 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 90%;
+    --input: 220 15% 92%;
+    --ring: 0 72% 51%;
+
+    --radius: 1rem;
+
+    /* Custom Pokédex colors */
+    --pokedex-red: 0 72% 51%;
+    --pokedex-red-light: 0 72% 95%;
+    --pokedex-dark: 220 20% 15%;
+    --pokedex-blue: 210 100% 50%;
+    --pokedex-yellow: 45 100% 51%;
+
+    /* Type colors - softer palette */
+    --type-normal: 55 15% 60%;
+    --type-fire: 25 90% 55%;
+    --type-water: 210 85% 55%;
+    --type-electric: 48 95% 50%;
+    --type-grass: 120 50% 45%;
+    --type-ice: 185 70% 65%;
+    --type-fighting: 0 65% 45%;
+    --type-poison: 280 55% 50%;
+    --type-ground: 35 55% 50%;
+    --type-flying: 245 65% 70%;
+    --type-psychic: 340 75% 60%;
+    --type-bug: 80 55% 42%;
+    --type-rock: 40 35% 45%;
+    --type-ghost: 265 45% 50%;
+    --type-dragon: 255 75% 55%;
+    --type-dark: 240 10% 30%;
+    --type-steel: 210 15% 60%;
+    --type-fairy: 330 55% 70%;
+
+    /* Fonts */
+    --font-display: 'Orbitron', system-ui, sans-serif;
+    --font-digital: 'VT323', monospace;
+    --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 20% 8%;
+    --foreground: 220 15% 95%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 220 15% 95%;
+
+    --popover: 220 20% 10%;
+    --popover-foreground: 220 15% 95%;
+
+    --primary: 0 72% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 220 15% 85%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 35 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 18%;
+    --ring: 0 72% 55%;
+
+    --pokedex-red: 0 72% 55%;
+    --pokedex-red-light: 0 72% 20%;
+    --pokedex-dark: 220 20% 5%;
+
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 220 15% 85%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 240 5.9% 10%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 0 72% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    transition: background-color 1.5s ease, border-color 1.5s ease, color 1.5s ease;
+  }
+
+  html {
+    transition: background-color 1.5s ease;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+    transition: background-color 1.5s ease, color 1.5s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  /* Hero Background with smooth transition */
+  .hero-bg {
+    background: linear-gradient(135deg, 
+      hsl(0 72% 51% / 0.05) 0%, 
+      hsl(var(--background)) 50%,
+      hsl(210 100% 50% / 0.05) 100%
+    );
+    transition: background 1.5s ease;
+  }
+
+  :is(.dark .hero-bg) {
+    background: linear-gradient(135deg, 
+      hsl(0 72% 51% / 0.08) 0%, 
+      hsl(var(--background)) 50%,
+      hsl(210 100% 50% / 0.08) 100%
+    );
+  }
+
+  /* Glass Card Effect */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm rounded-2xl border border-border/50;
+    box-shadow: 0 4px 24px -4px hsl(220 20% 10% / 0.08);
+    transition: background-color 1.5s ease, border-color 1.5s ease, box-shadow 1.5s ease;
+  }
+
+  :is(.dark .glass-card) {
+    box-shadow: 0 4px 24px -4px hsl(0 0% 0% / 0.3);
+  }
+
+  /* Pokemon Card */
+  .pokemon-card {
+    @apply bg-card rounded-2xl p-4 cursor-pointer transition-all duration-300 border border-transparent;
+    box-shadow: 0 2px 12px -2px hsl(220 20% 10% / 0.08);
+  }
+
+  .pokemon-card:hover {
+    @apply border-primary/20 -translate-y-1;
+    box-shadow: 0 12px 32px -8px hsl(0 72% 51% / 0.15);
+  }
+
+  .pokemon-card.selected {
+    @apply border-primary ring-2 ring-primary/20;
+  }
+
+  /* Type Badge */
+  .type-badge {
+    @apply px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide text-white;
+  }
+
+  /* Stat Bar */
+  .stat-bar {
+    @apply h-2.5 rounded-full overflow-hidden bg-secondary;
+  }
+
+  .stat-bar-fill {
+    @apply h-full rounded-full transition-all duration-700 ease-out;
+  }
+
+  /* Clean Button */
+  .btn-primary {
+    @apply px-5 py-2.5 rounded-xl font-semibold text-sm bg-primary text-primary-foreground;
+    @apply hover:bg-primary/90 active:scale-[0.98] transition-all duration-200;
+    box-shadow: 0 2px 8px -2px hsl(0 72% 51% / 0.3);
+  }
+
+  .btn-secondary {
+    @apply px-5 py-2.5 rounded-xl font-semibold text-sm bg-secondary text-secondary-foreground;
+    @apply hover:bg-secondary/80 active:scale-[0.98] transition-all duration-200;
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 rounded-xl font-medium text-sm text-muted-foreground;
+    @apply hover:bg-secondary hover:text-foreground active:scale-[0.98] transition-all duration-200;
+  }
+
+  /* Search Input */
+  .search-input {
+    @apply w-full px-5 py-3.5 pl-12 rounded-2xl bg-card border border-border text-foreground;
+    @apply placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary;
+    box-shadow: 0 2px 12px -2px hsl(220 20% 10% / 0.06);
+  }
+
+  /* Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full hover:bg-muted-foreground/30;
+  }
+
+  /* Number Badge */
+  .number-badge {
+    @apply text-xs font-bold text-muted-foreground bg-secondary px-2 py-0.5 rounded-full;
+  }
+
+  /* Floating Pokeball */
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+  }
+
+  .pokeball-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* Fade animations */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.5s ease-out forwards;
+  }
+
+  /* Background Animations */
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+    25% { transform: translateY(-20px) translateX(10px) rotate(5deg); }
+    50% { transform: translateY(-10px) translateX(-5px) rotate(-3deg); }
+    75% { transform: translateY(-25px) translateX(5px) rotate(3deg); }
+  }
+
+  @keyframes float-reverse {
+    0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+    25% { transform: translateY(15px) translateX(-10px) rotate(-5deg); }
+    50% { transform: translateY(5px) translateX(5px) rotate(3deg); }
+    75% { transform: translateY(20px) translateX(-5px) rotate(-3deg); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.03; transform: scale(1); }
+    50% { opacity: 0.06; transform: scale(1.05); }
+  }
+
+  @keyframes drift {
+    0% { transform: translateX(-100%) translateY(0); }
+    100% { transform: translateX(100vw) translateY(-50px); }
+  }
+
+  @keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 0.8; transform: scale(1); }
+  }
+
+  @keyframes orbit {
+    0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+  }
+
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+
+  .animate-float-reverse {
+    animation: float-reverse 10s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  .animate-drift {
+    animation: drift 20s linear infinite;
+  }
+
+  .animate-sparkle {
+    animation: sparkle 3s ease-in-out infinite;
+  }
+
+  .animate-orbit {
+    animation: orbit 20s linear infinite;
+  }
+
+  /* Animated gradient background */
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .animated-gradient-bg {
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-[hsl(var(--pokedex-blue))] bg-clip-text text-transparent;
+  }
+}
